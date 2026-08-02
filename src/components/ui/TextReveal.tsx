@@ -17,7 +17,7 @@ export function TextReveal({ text, className = "", delay = 0 }: { text: string; 
     }),
   };
 
-  const child = {
+  const child: any = {
     visible: {
       opacity: 1,
       y: 0,

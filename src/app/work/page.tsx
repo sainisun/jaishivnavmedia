@@ -1,3 +1,5 @@
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+
 export const metadata = { title: "Work | Jaishivnavmedia" };
 
 export default function Work() {
@@ -30,27 +32,29 @@ export default function Work() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col gap-12">
-      <div className="max-w-3xl flex flex-col gap-4">
+      <AnimatedSection className="max-w-3xl flex flex-col gap-4">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
           Products we've built
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400">
           Real products shipped for real users. No vanity metrics, just working software.
         </p>
-      </div>
+      </AnimatedSection>
 
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((p, i) => (
-          <div key={i} className="p-8 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col gap-4 bg-white dark:bg-slate-900">
-            <div className="flex justify-between items-start">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{p.title}</h3>
+          <AnimatedSection key={i} delay={i * 0.1}>
+            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col gap-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/10 h-full cursor-default">
+              <div className="flex justify-between items-start">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{p.title}</h3>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400">{p.desc}</p>
+              <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
+                <div className="text-sm"><strong className="text-slate-900 dark:text-slate-300">Stack:</strong> <span className="text-slate-600 dark:text-slate-400">{p.stack}</span></div>
+                <div className="text-sm"><strong className="text-slate-900 dark:text-slate-300">Outcome:</strong> <span className="text-slate-600 dark:text-slate-400">{p.outcome}</span></div>
+              </div>
             </div>
-            <p className="text-slate-600 dark:text-slate-400">{p.desc}</p>
-            <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
-              <div className="text-sm"><strong className="text-slate-900 dark:text-slate-300">Stack:</strong> <span className="text-slate-600 dark:text-slate-400">{p.stack}</span></div>
-              <div className="text-sm"><strong className="text-slate-900 dark:text-slate-300">Outcome:</strong> <span className="text-slate-600 dark:text-slate-400">{p.outcome}</span></div>
-            </div>
-          </div>
+          </AnimatedSection>
         ))}
       </div>
     </div>

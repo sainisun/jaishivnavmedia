@@ -1,13 +1,10 @@
 import Link from "next/link";
 import { ArrowRight, Code2, Globe, Cpu, Zap, Layers, Sparkles } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <div className="flex flex-col min-h-screen relative font-sans overflow-hidden mesh-bg text-white selection:bg-cyan-500/30">
         
         {/* Advanced CSS 3D Mesh Background */}
@@ -190,7 +187,6 @@ export default function Home() {
 
         </div>
       </div>
-      <Footer />
     </>
   );
 }

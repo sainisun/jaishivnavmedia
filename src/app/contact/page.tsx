@@ -1,115 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-export default function Contact() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    
-    // Honeypot check
-    if (data.bot_field) {
-      setStatus("success"); // fake success for bots
-      return;
-    }
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      setStatus("error");
-    }
-  };
-
+export default function ContactPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20 flex flex-col gap-12">
-      <div className="flex flex-col gap-4 text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-          Start a project
-        </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400">
-          Fill out the form below or start a quick chat on WhatsApp. We aim to respond on the same day.
-        </p>
-      </div>
+    <div className="min-h-screen mesh-bg text-white pt-40 pb-20 px-6 relative overflow-hidden">
+      <div className="max-w-[800px] mx-auto relative z-10 text-center">
+        <AnimatedSection>
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 text-xs font-bold text-cyan-100 tracking-[0.2em] uppercase mb-8 shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+            Start a project
+          </div>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-6">
+            Let's Talk.
+          </h1>
+          <p className="text-xl text-slate-300 font-medium mb-16 max-w-2xl mx-auto">
+            Fill out the form below or start a quick chat on WhatsApp. We aim to respond on the same day.
+          </p>
+        </AnimatedSection>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        <div className="flex flex-col gap-6">
-          <a
-            href="https://wa.me/yourwhatsappnumber"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded-xl border border-solid border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center justify-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
-          >
-            <span className="text-lg font-semibold text-slate-900 dark:text-slate-100">Quick Chat</span>
-            <span className="text-slate-600 dark:text-slate-400 text-center text-sm">
-              Need a fast answer? Reach out to us directly on WhatsApp.
-            </span>
-            <span className="bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full text-sm font-medium mt-2">
-              Open WhatsApp
-            </span>
-          </a>
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <input type="text" name="bot_field" className="hidden" tabIndex={-1} autoComplete="off" />
-          
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="name" className="text-sm font-medium text-slate-900 dark:text-slate-300">Name</label>
-            <input required type="text" id="name" name="name" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500" />
+        <AnimatedSection delay={0.2}>
+          <div className="glass-card p-10 max-w-2xl mx-auto rounded-[2.5rem] border border-white/20 shadow-2xl relative text-left">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-[2.5rem] pointer-events-none" />
+            
+            <form className="relative z-10 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold tracking-widest uppercase text-slate-400">Name</label>
+                <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="John Doe" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold tracking-widest uppercase text-slate-400">Email</label>
+                <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all" placeholder="john@company.com" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold tracking-widest uppercase text-slate-400">Project Type</label>
+                <select className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-slate-300 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all appearance-none">
+                  <option value="" className="text-slate-900">Select a type...</option>
+                  <option value="web" className="text-slate-900">Web Development</option>
+                  <option value="ecommerce" className="text-slate-900">E-commerce</option>
+                  <option value="ai" className="text-slate-900">AI Integration</option>
+                </select>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-bold tracking-widest uppercase text-slate-400">Message</label>
+                <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+              </div>
+              
+              <button className="w-full mt-4 py-5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-extrabold text-lg hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:scale-[1.02] transition-all">
+                Submit Inquiry
+              </button>
+            </form>
           </div>
-          
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="email" className="text-sm font-medium text-slate-900 dark:text-slate-300">Email</label>
-            <input required type="email" id="email" name="email" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500" />
-          </div>
-          
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="type" className="text-sm font-medium text-slate-900 dark:text-slate-300">Project Type</label>
-            <select required id="type" name="type" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500">
-              <option value="" disabled selected>Select a type...</option>
-              <option value="web">Web Development</option>
-              <option value="ecommerce">E-commerce</option>
-              <option value="ai">AI Integration</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="budget" className="text-sm font-medium text-slate-900 dark:text-slate-300">Budget Range</label>
-            <input required type="text" id="budget" name="budget" placeholder="e.g. $5k - $10k" className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500" />
-          </div>
-          
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="message" className="text-sm font-medium text-slate-900 dark:text-slate-300">Message</label>
-            <textarea required id="message" name="message" rows={4} className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500"></textarea>
-          </div>
-          
-          <button 
-            type="submit" 
-            disabled={status === "submitting" || status === "success"}
-            className="mt-2 w-full rounded-lg bg-primary-600 text-white font-medium py-3 hover:bg-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {status === "submitting" ? "Sending..." : status === "success" ? "Sent Successfully!" : "Submit Inquiry"}
-          </button>
-          
-          {status === "error" && (
-            <p className="text-red-500 text-sm text-center mt-2">There was an error sending your message. Please try again or use WhatsApp.</p>
-          )}
-        </form>
+        </AnimatedSection>
       </div>
     </div>
   );

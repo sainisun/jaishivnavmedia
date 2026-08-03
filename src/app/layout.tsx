@@ -16,6 +16,9 @@ export const metadata: Metadata = {
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
 
 export default function RootLayout({
   children,
@@ -38,11 +41,15 @@ export default function RootLayout({
             })
           }}
         />
-        <Navbar />
-        <div className="min-h-screen flex flex-col">
-          <main className="flex-grow">{children}</main>
-        </div>
-        <Footer />
+        <SmoothScroll>
+          <NoiseOverlay />
+          <CustomCursor />
+          <Navbar />
+          <div className="min-h-screen flex flex-col">
+            <main className="flex-grow">{children}</main>
+          </div>
+          <Footer />
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

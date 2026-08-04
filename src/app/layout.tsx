@@ -44,11 +44,11 @@ export default function RootLayout({
         <SmoothScroll>
           <NoiseOverlay />
           <CustomCursor />
-          <Navbar />
-          <div className="min-h-screen flex flex-col">
-            <main className="flex-grow">{children}</main>
+          <div className="flex flex-col min-h-screen relative">
+            <Navbar />
+            <main className="flex-grow flex flex-col relative">{children}</main>
+            <Footer />
           </div>
-          <Footer />
         </SmoothScroll>
         <Analytics />
       </body>

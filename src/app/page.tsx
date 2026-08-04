@@ -6,16 +6,12 @@ import { TiltCard } from "@/components/ui/TiltCard";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col min-h-screen relative font-sans overflow-hidden mesh-bg text-white selection:bg-cyan-500/30">
+      <div className="flex flex-col flex-grow relative font-sans overflow-hidden mesh-bg text-white selection:bg-cyan-500/30">
         
-        {/* Advanced CSS 3D Mesh Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-purple-600/30 rounded-[100%] mix-blend-screen filter blur-[120px] animate-blob z-0" />
-          <div className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-cyan-500/20 rounded-[100%] mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000 z-0" />
-          <div className="absolute bottom-[-20%] left-[20%] w-[900px] h-[900px] bg-blue-600/20 rounded-[100%] mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000 z-0" />
-          
-          {/* Grid overlay for texture */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" style={{opacity: 0.2}} />
+        {/* Technical Minimalist Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none bg-slate-950">
+          {/* Subtle grid overlay for texture */}
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" style={{opacity: 0.1}} />
         </div>
 
         {/* Hero Section */}
@@ -24,20 +20,16 @@ export default function Home() {
             
             <StaggeredContainer className="flex flex-col items-center">
               <StaggeredItem>
-                <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/20 text-xs font-bold text-cyan-100 tracking-[0.2em] uppercase mb-12 shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:bg-white/10 transition-colors cursor-pointer">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
-                  World-class digital engineering
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none border border-slate-800 bg-slate-900/50 text-xs font-bold text-slate-300 tracking-[0.2em] uppercase mb-12 shadow-sm">
+                  <Code2 className="w-4 h-4 text-cyan-400" />
+                  AI-Native Development
                 </div>
               </StaggeredItem>
 
               <StaggeredItem>
-                <h1 className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] leading-[1.05] font-black tracking-tighter text-white drop-shadow-2xl max-w-[1100px] mb-8">
-                  Build digital products <br />
-                  <span className="relative inline-block mt-2">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400">that defy gravity.</span>
-                    {/* Fake 3D Underline */}
-                    <span className="absolute bottom-1 left-0 w-full h-[30%] bg-blue-500/30 -z-10 -rotate-1 blur-sm rounded-full" />
-                  </span>
+                <h1 className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] leading-[1.05] font-black tracking-tighter text-white max-w-[1100px] mb-8">
+                  Engineering studio. <br />
+                  <span className="text-slate-400">AI agents build, we review every line.</span>
                 </h1>
               </StaggeredItem>
               
@@ -49,14 +41,13 @@ export default function Home() {
               
               <StaggeredItem>
                 <div className="flex flex-col sm:flex-row gap-6">
-                  <Link href="/contact" className="group relative px-10 py-5 rounded-full bg-white text-slate-900 font-extrabold text-lg overflow-hidden shadow-[0_10px_40px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] hover:-translate-y-1 transition-all duration-300">
-                    <span className="relative z-10 flex items-center justify-center gap-3">
+                  <Link href="/contact" className="group relative px-10 py-5 bg-white text-slate-950 font-extrabold text-lg transition-transform hover:-translate-y-1">
+                    <span className="flex items-center justify-center gap-3">
                       Start a Project
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-purple-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   </Link>
-                  <Link href="/work" className="group px-10 py-5 rounded-full bg-transparent text-white border border-white/30 font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-3">
+                  <Link href="/work" className="group px-10 py-5 bg-transparent text-white border border-slate-700 font-bold text-lg hover:bg-slate-800 transition-colors flex items-center justify-center gap-3">
                     View Showreel
                   </Link>
                 </div>
@@ -90,73 +81,48 @@ export default function Home() {
                 </StaggeredItem>
               </StaggeredContainer>
 
-              {/* Extremely Dense Bento Grid with TiltCards */}
-              <StaggeredContainer className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[400px]">
+              {/* Dense Bento Grid */}
+              <StaggeredContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
                 
-                {/* Huge Card: Web Engineering */}
-                <StaggeredItem className="md:col-span-2 md:row-span-2">
-                  <TiltCard className="w-full h-full bg-[#f8fafc] p-12 flex flex-col justify-between overflow-hidden relative border border-slate-200 group">
-                    {/* CSS 3D Sphere Placeholder */}
-                    <div className="absolute right-[-10%] top-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-100 to-cyan-50 opacity-80 blur-3xl group-hover:scale-110 transition-transform duration-700 pointer-events-none" />
-                    <div className="absolute right-10 top-10 w-64 h-64 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-300 shadow-[inset_-20px_-20px_40px_rgba(0,0,0,0.2)] opacity-20 group-hover:opacity-40 group-hover:rotate-12 transition-all duration-700 pointer-events-none" />
-
+                {/* Card 1: Web Engineering */}
+                <StaggeredItem className="md:col-span-2">
+                  <TiltCard className="w-full h-full bg-slate-50 p-12 flex flex-col justify-between overflow-hidden relative border border-slate-200 group rounded-none">
                     <div className="relative z-10 pointer-events-none">
-                      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 mb-8 shadow-sm">
-                        <Code2 className="w-4 h-4 text-blue-500" /> Core Capability
+                      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-none border border-slate-200 bg-white text-sm font-bold text-slate-700 mb-8 shadow-sm">
+                        <Code2 className="w-4 h-4 text-slate-900" /> Web Development
                       </div>
-                      <h3 className="text-5xl font-black tracking-tighter text-slate-900 mb-6 leading-tight">Web & Mobile <br/> Engineering</h3>
+                      <h3 className="text-5xl font-black tracking-tighter text-slate-900 mb-6 leading-tight">Fast, accessible <br/> web engineering</h3>
                       <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-md">
-                        High-performance React, Next.js, and React Native applications built for millions of users. 
+                        React, Next.js, and modern TypeScript applications built for performance.
                       </p>
                     </div>
-
-                    <div className="relative z-10 flex gap-4 pointer-events-none">
-                      {['Next.js', 'React', 'Tailwind', 'TypeScript'].map((tech) => (
-                        <span key={tech} className="px-4 py-2 bg-white rounded-xl text-sm font-bold text-slate-700 shadow-sm border border-slate-100">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
                   </TiltCard>
                 </StaggeredItem>
 
-                {/* Medium Card: AI */}
-                <StaggeredItem className="md:col-span-2">
-                  <TiltCard className="w-full h-full bg-[#f8fafc] p-10 flex flex-col justify-between overflow-hidden relative border border-slate-200 group">
-                    <div className="absolute bottom-[-30%] right-[-10%] w-[400px] h-[400px] bg-gradient-to-tl from-purple-200 to-transparent rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700 pointer-events-none" />
-                    
-                    <div className="relative z-10 pointer-events-none">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30 transform group-hover:scale-110 transition-transform duration-500">
-                        <Cpu className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-4xl font-black tracking-tighter text-slate-900 mb-4">AI Integration</h3>
-                      <p className="text-lg text-slate-600 font-medium max-w-sm">Embedding LLMs and intelligent agents natively into your product workflows.</p>
-                    </div>
-                  </TiltCard>
-                </StaggeredItem>
-
-                {/* Small Card: Design */}
+                {/* Card 2: E-commerce */}
                 <StaggeredItem>
-                  <TiltCard className="w-full h-full bg-[#f8fafc] p-10 flex flex-col justify-between overflow-hidden relative border border-slate-200 group">
+                  <TiltCard className="w-full h-full bg-slate-50 p-10 flex flex-col justify-between overflow-hidden relative border border-slate-200 group rounded-none">
                     <div className="relative z-10 pointer-events-none">
-                      <div className="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center mb-6 shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
-                        <Layers className="w-7 h-7 text-white" />
+                      <div className="w-16 h-16 bg-slate-900 flex items-center justify-center mb-6">
+                        <Globe className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-3xl font-black tracking-tighter text-slate-900 mb-3">UI/UX Design</h3>
-                      <p className="text-slate-600 font-medium">Interfaces that convert.</p>
+                      <h3 className="text-4xl font-black tracking-tighter text-slate-900 mb-4">E-commerce</h3>
+                      <p className="text-lg text-slate-600 font-medium max-w-sm">High-converting headless storefronts.</p>
                     </div>
                   </TiltCard>
                 </StaggeredItem>
 
-                {/* Small Card: Cloud */}
-                <StaggeredItem>
-                  <TiltCard className="w-full h-full bg-[#f8fafc] p-10 flex flex-col justify-between overflow-hidden relative border border-slate-200 group">
-                    <div className="relative z-10 pointer-events-none">
-                      <div className="w-14 h-14 rounded-2xl bg-cyan-500 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30 transform group-hover:-rotate-12 transition-transform duration-500">
-                        <Globe className="w-7 h-7 text-white" />
+                {/* Card 3: AI Integration */}
+                <StaggeredItem className="md:col-span-3">
+                  <TiltCard className="w-full h-full bg-slate-50 p-12 flex flex-col justify-between overflow-hidden relative border border-slate-200 group rounded-none">
+                    <div className="relative z-10 pointer-events-none flex flex-col md:flex-row md:items-center justify-between gap-8">
+                      <div>
+                        <div className="w-16 h-16 bg-slate-900 flex items-center justify-center mb-6">
+                          <Cpu className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-4xl font-black tracking-tighter text-slate-900 mb-4">AI Integration</h3>
+                        <p className="text-lg text-slate-600 font-medium max-w-md">Embedding LLMs and intelligent agents natively into your product workflows.</p>
                       </div>
-                      <h3 className="text-3xl font-black tracking-tighter text-slate-900 mb-3">Cloud Arch</h3>
-                      <p className="text-slate-600 font-medium">Scalable infrastructure.</p>
                     </div>
                   </TiltCard>
                 </StaggeredItem>
@@ -165,25 +131,21 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Massive 3D CTA Section */}
+          {/* Massive CTA Section */}
           <section className="mt-40 px-6 relative z-10">
             <StaggeredContainer className="max-w-[1400px] mx-auto">
               <StaggeredItem>
-                <div className="relative w-full rounded-[3rem] bg-slate-900 p-16 md:p-24 overflow-hidden shadow-2xl">
-                  {/* 3D Inner Glow */}
-                  <div className="absolute inset-0 rounded-[3rem] ring-1 ring-inset ring-white/10 pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-transparent to-cyan-900/40" />
-                  
+                <div className="relative w-full rounded-none bg-slate-950 p-16 md:p-24 overflow-hidden border border-slate-800">
                   <div className="relative z-10 flex flex-col items-center text-center">
                     <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8">
                       Start Building.
                     </h2>
-                    <p className="text-2xl text-slate-300 font-medium mb-12 max-w-2xl">
+                    <p className="text-2xl text-slate-400 font-medium mb-12 max-w-2xl">
                       Don't settle for generic. Let's engineer something extraordinary together.
                     </p>
                     
-                    <Link href="/contact" className="group relative h-20 px-12 rounded-full bg-white text-slate-900 font-extrabold text-xl flex items-center justify-center gap-4 hover:scale-105 transition-all duration-300 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
-                      <span className="relative z-10 flex items-center gap-2">
+                    <Link href="/contact" className="group relative h-20 px-12 bg-white text-slate-950 font-extrabold text-xl flex items-center justify-center gap-4 hover:-translate-y-1 transition-transform">
+                      <span className="flex items-center gap-2">
                         Get Free Consultation <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </Link>

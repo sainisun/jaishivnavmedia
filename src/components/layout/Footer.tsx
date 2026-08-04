@@ -3,10 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-32 pb-10 relative overflow-hidden">
-      {/* Massive gradient orb in background of footer */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-gradient-to-b from-purple-900/20 to-transparent rounded-[100%] blur-[100px] pointer-events-none" />
-
+    <footer className="bg-slate-950 text-white pt-32 pb-10 relative overflow-hidden border-t border-slate-900">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-10">
@@ -19,7 +16,7 @@ export function Footer() {
               <span className="font-extrabold text-2xl tracking-tighter">JaishivNav Media</span>
             </Link>
             <p className="text-slate-400 text-lg font-medium leading-relaxed">
-              We design and build world-class digital products for startups and enterprises worldwide.
+              We design and engineer digital products.
             </p>
           </div>
 
